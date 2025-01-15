@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <h1>Promise</h1>
+        <p id="i1"></p>
+        <script>
+            function disp(value) {
+                document.getElementById("i1").innerHTML = value;
+
+            }
+            let pr=new Promise(function(res,rej){
+                let x=10;
+                if(x==10){//producing code
+                    res("Result OK");//successful
+
+                }
+                else{
+                    rej("ERROR");//unsuccessfull
+                }
+            });
+            pr.then(//consuming code
+                function(a){disp(a);},//successful:res
+                function(e){disp(e);}//unsuccessful:rej will be displayed as (e)
+            );
+
+            async function add(a,b) {//async:consuming code
+                let r= await a*b;//producing code:process
+                disp(r);
+
+            }
+            add(5,7);
+            </script>
+    </body>
+</html>

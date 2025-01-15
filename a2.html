@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h1>Callback</h1>
+        <p id="i1"></p>
+        <script>
+            function disp(value){//value=11
+                document.getElementById("i1").innerHTML=value;
+
+            }
+            function calc(n1,n2,fun){
+                let sum=n1+n2;//parameters , n1=7,n2=4,fun=disp
+                fun(sum);//disp(11):disp()is called 
+            }
+            calc(7,4,disp);//function passed as an argument
+        </script>
+    </body>
+</html>
